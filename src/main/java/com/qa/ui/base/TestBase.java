@@ -22,6 +22,8 @@ public class TestBase {
         if (driver == null) {
             String browserName = prop.getProperty("browser");
             if (browserName.equalsIgnoreCase("chrome")) {
+                WebDriverManager.chromedriver().clearDriverCache().setup();
+                WebDriverManager.chromedriver().clearResolutionCache().setup();
                 driver = WebDriverManager.chromedriver().create();
             } else if (browserName.equalsIgnoreCase("chromium")) {
                 driver = WebDriverManager.chromiumdriver().create();
